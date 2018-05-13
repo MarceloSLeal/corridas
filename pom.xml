@@ -3,10 +3,10 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>com.corridas</groupId>
+	<groupId>com.marcelo</groupId>
 	<artifactId>corridas</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>jar</packaging>
+	<packaging>war</packaging>
 
 	<name>corridas</name>
 	<description>Demo project for Spring Boot</description>
@@ -37,6 +37,18 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+		
+		<dependency>
+        	<groupId>org.springframework.boot</groupId>
+        	<artifactId>spring-boot-starter-tomcat</artifactId>
+        	<scope>provided</scope>
+    	</dependency>
+    	
+    	<dependency>
+        	<groupId>org.apache.tomcat.embed</groupId>
+        	<artifactId>tomcat-embed-jasper</artifactId>
+        	<scope>provided</scope>
+   		 </dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
