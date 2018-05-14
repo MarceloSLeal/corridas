@@ -8,7 +8,7 @@ import com.marcelo.corridas.model.Motorista;
 
 @Controller
 public class MotoristasController {
-
+	
 	@RequestMapping("/motoristas/novo")
 	public String novo() {
 		return "motorista/CadastroMotorista";
@@ -19,5 +19,6 @@ public class MotoristasController {
 		System.out.println(">>>> id: " + motorista.getId());
 		return "motorista/CadastroMotorista";
 	}
+
 	
 }

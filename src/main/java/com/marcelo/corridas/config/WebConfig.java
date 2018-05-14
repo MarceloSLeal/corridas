@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring5.ISpringTemplateEngine;
 import org.thymeleaf.spring5.SpringTemplateEngine;
@@ -22,7 +23,7 @@ import com.marcelo.corridas.controller.MotoristasController;
 @Configuration
 @ComponentScan(basePackageClasses = { MotoristasController.class })
 @EnableWebMvc
-public class WebConfig implements ApplicationContextAware {
+public class WebConfig implements ApplicationContextAware, WebMvcConfigurer {
 	
 	private ApplicationContext applicationContext;
 	
@@ -51,10 +52,6 @@ public class WebConfig implements ApplicationContextAware {
 		return engine;
 	}
 	
-	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
-	}
-
 	private ITemplateResolver templateResolver() {
 		SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
 		resolver.setApplicationContext(applicationContext);
@@ -64,5 +61,8 @@ public class WebConfig implements ApplicationContextAware {
 		return resolver;
 	}
 	
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
+	}
 
 }
