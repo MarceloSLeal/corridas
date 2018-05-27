@@ -20,6 +20,8 @@ import org.thymeleaf.templateresolver.ITemplateResolver;
 
 import com.marcelo.corridas.controller.MotoristasController;
 
+import nz.net.ultraq.thymeleaf.LayoutDialect;
+
 @Configuration
 @ComponentScan(basePackageClasses = { MotoristasController.class })
 @EnableWebMvc
@@ -49,8 +51,11 @@ public class WebConfig implements ApplicationContextAware, WebMvcConfigurer {
 		SpringTemplateEngine engine = new SpringTemplateEngine();
 		engine.setEnableSpringELCompiler(true);
 		engine.setTemplateResolver(templateResolver());
+		
+		engine.addDialect(new LayoutDialect());
 		return engine;
 	}
+	
 	
 	private ITemplateResolver templateResolver() {
 		SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
